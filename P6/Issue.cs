@@ -2,7 +2,7 @@
 
 namespace P6
 {
-    class Issue
+    public class Issue
     {
         public int Id { get; set; }
         public int ProjectId { get; set; }

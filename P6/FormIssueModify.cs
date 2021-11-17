@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace P6
@@ -8,11 +14,16 @@ namespace P6
     {
         AppUser _CurrentAppUser;
         FakeIssueStatusRepository issueStatusRepo = new FakeIssueStatusRepository();
-
+        public Issue _SelectedIssue;
         public FormIssueModify(AppUser appuser)
         {
             InitializeComponent();
             _CurrentAppUser = appuser;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void FormIssueModify_Load(object sender, EventArgs e)
@@ -33,34 +44,29 @@ namespace P6
             dataGridView1.Columns.Add("C", "Component");
             dataGridView1.Columns.Add("S", "Status");
             List<Issue> issues = fakeIssueRepo.GetAll(ProjectId);
-            foreach(Issue i in issues)
+            foreach (Issue i in issues)
             {
                 dataGridView1.Rows.Add(i.Id, i.Title, i.DiscoveryDate, i.Discoverer, i.InitialDescription, i.Component, issueStatusRepo.GetValueById(i.IssueStatusId));
             }
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void buttonSelect_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dataGridView1.SelectedRows;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
+                _SelectedIssue = new Issue
+                {
+                    Id = (int)row.Cells[0].Value,
+                    Title = (string)row.Cells[1].Value,
+                    DiscoveryDate = (DateTime)row.Cells[2].Value,
+                    Discoverer = (string)row.Cells[3].Value,
+                    InitialDescription = (string)row.Cells[4].Value,
+                    Component = (string)row.Cells[5].Value,
+                    IssueStatusId = issueStatusRepo.GetIdByStatus((string)row.Cells[6].Value),
+                };
 
             }
-            SelectedIssue = new Issue
-            { 
-                Id = (int)row.Cells[0].Value;
-                Title = (string)row.Cells[1].Value;
-                DiscoveryDate = (DateTime)row.Cells[2].Value;
-                Discoverer = (string)row.Cells[3].Value;
-                InitialDescription = (string)row.Cells[4].Value;
-                Component = (string)row.Cells[5].Value;
-                IssueStatusId = issueStatusRepo.GetIdByStatus((string)row.Cells[6].Value);
-            }
+
             DialogResult = DialogResult.OK;
             Close();
         }

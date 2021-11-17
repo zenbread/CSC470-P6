@@ -14,7 +14,7 @@ namespace P6
         private const string NO_ERROR = "";
 
         private static List<Issue> _Issues = new List<Issue>();
-        private static int _IssueCount = 0;
+        private static int _IssueCount = 1;
 
         public FakeIssueRepository()
         {
@@ -64,7 +64,11 @@ namespace P6
 
             string check = ValidateIssue(issue);
             if (check == NO_ERROR)
+            {
+                if (isDuplicate(issue.Title))
+                    return DUPLICATE_TITLE_ERROR;
                 _Issues.Add(issue);
+            }
 
             return check;
         }
@@ -73,8 +77,6 @@ namespace P6
         {
             if (string.IsNullOrEmpty(issue.Title))
                 return EMPTY_TITLE_ERROR;
-            else if (isDuplicate(issue.Title))
-                return DUPLICATE_TITLE_ERROR;
             else if (issue.DiscoveryDate == DateTime.MinValue)
                 return EMPTY_DISCOVERY_DATETIME_ERROR;
             else if (DateTime.Compare(DateTime.Now, issue.DiscoveryDate) < 0)
@@ -175,7 +177,6 @@ namespace P6
                 {
                     if (issue.Id == old.Id)
                     {
-                        old.ProjectId = issue.ProjectId;
                         old.Title = issue.Title;
                         old.DiscoveryDate = issue.DiscoveryDate;
                         old.Discoverer = issue.Discoverer;

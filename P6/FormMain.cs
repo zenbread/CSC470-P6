@@ -99,5 +99,18 @@ namespace P6
             form.ShowDialog();
             form.Dispose();
         }
+
+        private void issuesModifyToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            FormIssueModify form = new FormIssueModify(_CurrentAppUser);
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                FormIssueModifyRecord form2 = new FormIssueModifyRecord(form._SelectedIssue);
+                form2.ShowDialog();
+                form2.Dispose();
+            }
+            form.Dispose();
+        }
     }
 }

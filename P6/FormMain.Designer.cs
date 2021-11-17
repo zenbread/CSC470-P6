@@ -118,11 +118,19 @@
             this.issuesDashboardToolStripMenuItem.Text = "&Dashboard";
             this.issuesDashboardToolStripMenuItem.Click += new System.EventHandler(this.issuesDashboardToolStripMenuItem_Click);
             // 
+            // issuesRecordToolStripMenuItem
+            // 
+            this.issuesRecordToolStripMenuItem.Name = "issuesRecordToolStripMenuItem";
+            this.issuesRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.issuesRecordToolStripMenuItem.Text = "&Record";
+            this.issuesRecordToolStripMenuItem.Click += new System.EventHandler(this.issuesRecordToolStripMenuItem_Click);
+            // 
             // issuesModifyToolStripMenuItem
             // 
             this.issuesModifyToolStripMenuItem.Name = "issuesModifyToolStripMenuItem";
             this.issuesModifyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.issuesModifyToolStripMenuItem.Text = "&Modify";
+            this.issuesModifyToolStripMenuItem.Click += new System.EventHandler(this.issuesModifyToolStripMenuItem_Click);
             // 
             // issuesRemoveToolStripMenuItem
             // 

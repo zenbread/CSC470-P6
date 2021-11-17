@@ -1,5 +1,4 @@
-﻿
-namespace P6
+﻿namespace P6
 {
     partial class FormIssueModify
     {
@@ -40,16 +39,15 @@ namespace P6
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(905, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 268);
             this.dataGridView1.TabIndex = 0;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(669, 269);
+            this.buttonCancel.Location = new System.Drawing.Point(563, 334);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 1;
@@ -59,7 +57,7 @@ namespace P6
             // 
             // buttonSelect
             // 
-            this.buttonSelect.Location = new System.Drawing.Point(764, 269);
+            this.buttonSelect.Location = new System.Drawing.Point(681, 334);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(75, 23);
             this.buttonSelect.TabIndex = 2;
@@ -71,7 +69,7 @@ namespace P6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 322);
+            this.ClientSize = new System.Drawing.Size(800, 377);
             this.Controls.Add(this.buttonSelect);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.dataGridView1);
