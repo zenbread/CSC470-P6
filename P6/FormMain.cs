@@ -92,5 +92,12 @@ namespace P6
             form.ShowDialog();
             form.Dispose();
         }
+
+        private void issuesRecordToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            FormIssueRecord form = new FormIssueRecord(_CurrentAppUser);
+            form.ShowDialog();
+            form.Dispose();
+        }
     }
 }

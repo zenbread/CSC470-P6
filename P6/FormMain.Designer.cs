@@ -39,14 +39,6 @@
             this.issuesRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuesModifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuesRemoveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportCountByAssigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportListByAssigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportCountByArtifactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportListByArtifactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportCountByDateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportListByDateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuesReportTrendByDateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.designToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,8 +106,7 @@
             this.issuesDashboardToolStripMenuItem,
             this.issuesRecordToolStripMenuItem,
             this.issuesModifyToolStripMenuItem,
-            this.issuesRemoveToolStripMenuItem,
-            this.issuesReportToolStripMenuItem});
+            this.issuesRemoveToolStripMenuItem});
             this.issuesToolStripMenuItem.Name = "issuesToolStripMenuItem";
             this.issuesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.issuesToolStripMenuItem.Text = "&Issue";
@@ -132,6 +123,7 @@
             this.issuesRecordToolStripMenuItem.Name = "issuesRecordToolStripMenuItem";
             this.issuesRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.issuesRecordToolStripMenuItem.Text = "&Record";
+            this.issuesRecordToolStripMenuItem.Click += new System.EventHandler(this.issuesRecordToolStripMenuItem_Click);
             // 
             // issuesModifyToolStripMenuItem
             // 
@@ -144,62 +136,6 @@
             this.issuesRemoveToolStripMenuItem.Name = "issuesRemoveToolStripMenuItem";
             this.issuesRemoveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.issuesRemoveToolStripMenuItem.Text = "R&emove";
-            // 
-            // issuesReportToolStripMenuItem
-            // 
-            this.issuesReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.issuesReportCountByAssigneeToolStripMenuItem,
-            this.issuesReportListByAssigneeToolStripMenuItem,
-            this.issuesReportCountByArtifactToolStripMenuItem,
-            this.issuesReportListByArtifactToolStripMenuItem,
-            this.issuesReportCountByDateRangeToolStripMenuItem,
-            this.issuesReportListByDateRangeToolStripMenuItem,
-            this.issuesReportTrendByDateRangeToolStripMenuItem});
-            this.issuesReportToolStripMenuItem.Name = "issuesReportToolStripMenuItem";
-            this.issuesReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.issuesReportToolStripMenuItem.Text = "Re&port";
-            // 
-            // issuesReportCountByAssigneeToolStripMenuItem
-            // 
-            this.issuesReportCountByAssigneeToolStripMenuItem.Name = "issuesReportCountByAssigneeToolStripMenuItem";
-            this.issuesReportCountByAssigneeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.issuesReportCountByAssigneeToolStripMenuItem.Text = "Count by Assignee";
-            // 
-            // issuesReportListByAssigneeToolStripMenuItem
-            // 
-            this.issuesReportListByAssigneeToolStripMenuItem.Name = "issuesReportListByAssigneeToolStripMenuItem";
-            this.issuesReportListByAssigneeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.issuesReportListByAssigneeToolStripMenuItem.Text = "List by Assignee";
-            // 
-            // issuesReportCountByArtifactToolStripMenuItem
-            // 
-            this.issuesReportCountByArtifactToolStripMenuItem.Name = "issuesReportCountByArtifactToolStripMenuItem";
-            this.issuesReportCountByArtifactToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.issuesReportCountByArtifactToolStripMenuItem.Text = "Count by Artifact";
-            // 
-            // issuesReportListByArtifactToolStripMenuItem
-            // 
-            this.issuesReportListByArtifactToolStripMenuItem.Name = "issuesReportListByArtifactToolStripMenuItem";
-            this.issuesReportListByArtifactToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.issuesReportListByArtifactToolStripMenuItem.Text = "List by Artifact";
-            // 
-            // issuesReportCountByDateRangeToolStripMenuItem
-            // 
-            this.issuesReportCountByDateRangeToolStripMenuItem.Name = "issuesReportCountByDateRangeToolStripMenuItem";
-            this.issuesReportCountByDateRangeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.issuesReportCountByDateRangeToolStripMenuItem.Text = "Count by Date Range";
-            // 
-            // issuesReportListByDateRangeToolStripMenuItem
-            // 
-            this.issuesReportListByDateRangeToolStripMenuItem.Name = "issuesReportListByDateRangeToolStripMenuItem";
-            this.issuesReportListByDateRangeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.issuesReportListByDateRangeToolStripMenuItem.Text = "List by Date Range";
-            // 
-            // issuesReportTrendByDateRangeToolStripMenuItem
-            // 
-            this.issuesReportTrendByDateRangeToolStripMenuItem.Name = "issuesReportTrendByDateRangeToolStripMenuItem";
-            this.issuesReportTrendByDateRangeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.issuesReportTrendByDateRangeToolStripMenuItem.Text = "Trend by Date Range";
             // 
             // requirementsToolStripMenuItem
             // 
@@ -249,14 +185,6 @@
         private System.Windows.Forms.ToolStripMenuItem issuesRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issuesModifyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issuesRemoveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportCountByAssigneeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportListByAssigneeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportCountByArtifactToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportListByArtifactToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportCountByDateRangeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportListByDateRangeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem issuesReportTrendByDateRangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem requirementsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem designToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
