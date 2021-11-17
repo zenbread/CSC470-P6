@@ -14,11 +14,59 @@ namespace P6
         private const string NO_ERROR = "";
 
         private static List<Issue> _Issues = new List<Issue>();
+
+        public FakeIssueRepository()
+        {
+            if (_Issues.Count == 0)
+            {
+                Add(new Issue
+                {
+                    Id = 0,
+                    ProjectId = 1,
+                    Title = "First Issue",
+                    DiscoveryDate = new DateTime(2021, 1, 15, 14, 32, 20),
+                    Discoverer = "Bishop, Dave",
+                    InitialDescription = "This is the first issue.",
+                    Component = "FormMain",
+                    IssueStatusId = 1
+                });
+                Add(new Issue
+                {
+                    Id = 0,
+                    ProjectId = 1,
+                    Title = "Second Issue",
+                    DiscoveryDate = new DateTime(2021, 1, 16, 12, 12, 30),
+                    Discoverer = "Bishop, Dave",
+                    InitialDescription = "This is the second issue.",
+                    Component = "FormMain",
+                    IssueStatusId = 2
+                });
+                Add(new Issue
+                {
+                    Id = 0,
+                    ProjectId = 1,
+                    Title = "Third Issue",
+                    DiscoveryDate = new DateTime(2021, 3, 25, 11, 2, 32),
+                    Discoverer = "Bishop, Dave",
+                    InitialDescription = "This is the third issue.",
+                    Component = "FormCreateProject",
+                    IssueStatusId = 4
+                });
+            }
+        }
         public string Add(Issue issue)
         {
+
             string check = ValidateIssue(issue);
             if (check == NO_ERROR)
+            {
+                int id = 1;
+                foreach (Issue _ in _Issues)
+                    id++;
+                issue.Id = id;
                 _Issues.Add(issue);
+            }
+
             return check;
         }
 
