@@ -82,6 +82,12 @@
     <Compile Include="FormIssueDashboard.Designer.cs">
       <DependentUpon>FormIssueDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormIssueRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIssueRecord.Designer.cs">
+      <DependentUpon>FormIssueRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="IIssueRepository.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="IssueStatus.cs" />
@@ -135,6 +141,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormIssueDashboard.resx">
       <DependentUpon>FormIssueDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIssueRecord.resx">
+      <DependentUpon>FormIssueRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
