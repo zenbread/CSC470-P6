@@ -14,6 +14,8 @@ namespace P6
     {
         AppUser _CurrentAppUser;
         FakeIssueStatusRepository issueStatusRepo = new FakeIssueStatusRepository();
+        FakePreferenceRepository fakePreference = new FakePreferenceRepository();
+            
         public Issue _SelectedIssue;
         public FormIssueModify(AppUser appuser)
         {
@@ -29,7 +31,6 @@ namespace P6
         private void FormIssueModify_Load(object sender, EventArgs e)
         {
             CenterToParent();
-            FakePreferenceRepository fakePreference = new FakePreferenceRepository();
             string preferredProjectId = fakePreference.GetPreference(_CurrentAppUser.UserName,
                                                                FakePreferenceRepository.PREFERENCE_PROJECT_ID);
 
@@ -52,11 +53,16 @@ namespace P6
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
+            string preferredProjectId = fakePreference.GetPreference(_CurrentAppUser.UserName,
+                                                   FakePreferenceRepository.PREFERENCE_PROJECT_ID);
+
+            Int32.TryParse(preferredProjectId, out int ProjectId);
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 _SelectedIssue = new Issue
                 {
                     Id = (int)row.Cells[0].Value,
+                    ProjectId = ProjectId,
                     Title = (string)row.Cells[1].Value,
                     DiscoveryDate = (DateTime)row.Cells[2].Value,
                     Discoverer = (string)row.Cells[3].Value,

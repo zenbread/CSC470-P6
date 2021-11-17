@@ -192,7 +192,17 @@ namespace P6
 
         public bool Remove(Issue issue)
         {
-            return _Issues.Remove(issue);
+            int index = 0;
+            foreach (Issue i in _Issues)
+            {
+                if (i.Id == issue.Id)
+                {
+                    _Issues.RemoveAt(index);
+                    return true;
+                }
+                index++;
+            }
+            return false;
         }
     }
 }

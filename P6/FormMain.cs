@@ -112,5 +112,23 @@ namespace P6
             }
             form.Dispose();
         }
+
+        private void issuesRemoveToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            FormIssueModify form = new FormIssueModify(_CurrentAppUser);
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                result =  MessageBox.Show($"Are you sure you want to remove: {form._SelectedIssue.Title}?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    FakeIssueRepository issueRepo = new FakeIssueRepository();
+                    issueRepo.Remove(form._SelectedIssue);
+                }
+                else
+                    MessageBox.Show("Remove Canceled.", "Attention");
+            }
+            form.Dispose();
+        }
     }
 }
