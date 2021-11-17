@@ -12,5 +12,10 @@
         {
             IsAuthenticated = false;
         }
+
+        public override string ToString()
+        {
+            return $"{LastName}, {FirstName}";
+        }
     }
 }
